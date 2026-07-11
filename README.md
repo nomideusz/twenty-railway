@@ -1,6 +1,6 @@
 # Deploy and Host Twenty CRM on Railway
 
-[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/twenty-crm?utm_medium=integration&utm_source=button&utm_campaign=twenty)
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/twenty-crm-production?utm_medium=integration&utm_source=button&utm_campaign=twenty)
 
 [Twenty](https://twenty.com/) is the open-source CRM: pipelines, contacts, companies, notes, tasks, email sync, and workflow automation in a fast modern UI — a self-hosted alternative to Salesforce and Pipedrive, built by one of the most active open-source teams (50K+ GitHub stars).
 
