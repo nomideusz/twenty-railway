@@ -32,8 +32,8 @@ Service map:
 
 | Service | Image | Role |
 |---|---|---|
-| server | `twentycrm/twenty:v2.20.0` | API + web app, public domain, healthcheck `/healthz`, runs migrations |
-| worker | `twentycrm/twenty:v2.20.0` (CMD `yarn worker:prod`) | BullMQ jobs: emails, imports, workflows |
+| server | `twentycrm/twenty:v2.48.0` | API + web app, public domain, healthcheck `/healthz`, runs migrations |
+| worker | `twentycrm/twenty:v2.48.0` (CMD `yarn worker:prod`, after the server finishes upgrading the database) | BullMQ jobs: emails, imports, workflows |
 | postgres | `postgres:16-alpine` | Database (`default`), on a volume |
 | redis | `redis:7-alpine` | BullMQ queues (`noeviction`, append-only, on a volume) |
 
@@ -49,7 +49,8 @@ Notes and limits:
 - Email/calendar sync (Gmail, Microsoft) needs your own OAuth app credentials — add the `MESSAGING_PROVIDER_*` / `AUTH_GOOGLE_*` / `AUTH_MICROSOFT_*` variables per Twenty's docs.
 - Without SMTP variables, invitation and notification emails are skipped; the app works fully otherwise.
 - Scale the `worker` replicas if imports or workflow executions queue up.
-- Upgrade by bumping the image tag in both `server` and `worker` — migrations run automatically on the server.
+- Upgrade by bumping the image tag in both `server` and `worker` — migrations run automatically on the server, and the worker waits for them before it starts.
+- Upgrading a deploy made from the earlier v2.20 version of this template: records carry over, and everyone is signed out once and signs in again.
 
 ## Why Deploy Twenty CRM on Railway?
 
