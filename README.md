@@ -22,7 +22,7 @@ This template runs Twenty v2 as four Railway services: the server (API + web app
 ### Deployment Dependencies
 
 - [Twenty self-hosting documentation](https://twenty.com/developers/section/self-hosting)
-- [Template source on GitHub](https://github.com/nomideusz/twenty-railway)
+- [Template source on GitHub](https://github.com/two-workspaces/twenty)
 
 ### Implementation Details
 
