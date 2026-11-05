@@ -17,6 +17,7 @@ This template runs Twenty v2 as four Railway services: the server (API + web app
 ## Dependencies for Twenty CRM Hosting
 
 - All bundled: PostgreSQL 16, Redis 7, and a Railway bucket for file attachments
+- At least 1 GB of memory per service: the server can't boot on the Free plan's 0.5 GB
 - SMTP credentials (optional, post-deploy) for email notifications; Google/Microsoft OAuth apps (optional) for email and calendar sync
 
 ### Deployment Dependencies
