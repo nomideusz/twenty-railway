@@ -1,4 +1,4 @@
-FROM twentycrm/twenty:v2.57.1
+FROM twentycrm/twenty:v2.59.3
 
 # BullMQ worker: emails, imports, workflow runs. Migrations and cron
 # registration stay on the server (upstream compose does the same).

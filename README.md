@@ -33,8 +33,8 @@ Service map:
 
 | Service | Image | Role |
 |---|---|---|
-| server | `twentycrm/twenty:v2.55.0` | API + web app, public domain, healthcheck `/healthz`, runs migrations |
-| worker | `twentycrm/twenty:v2.55.0` (CMD `yarn worker:prod`, after the server finishes upgrading the database) | BullMQ jobs: emails, imports, workflows |
+| server | `twentycrm/twenty:v2.59.3` | API + web app, public domain, healthcheck `/healthz`, runs migrations |
+| worker | `twentycrm/twenty:v2.59.3` (CMD `yarn worker:prod`, after the server finishes upgrading the database) | BullMQ jobs: emails, imports, workflows |
 | postgres | `postgres:16-alpine` | Database (`default`), on a volume |
 | redis | `redis:7-alpine` | BullMQ queues (`noeviction`, append-only, on a volume) |
 
@@ -51,6 +51,7 @@ Notes and limits:
 - Without SMTP variables, invitation and notification emails are skipped; the app works fully otherwise.
 - Scale the `worker` replicas if imports or workflow executions queue up.
 - Upgrade by bumping the image tag in both `server` and `worker` — migrations run automatically on the server, and the worker waits for them before it starts.
+- Back up the `postgres` volume before a big upgrade: migrations rewrite the schema and can't be rolled back (v2.58, for example, drops the legacy workflow object and rewrites row-level permissions).
 - Upgrading a deploy made from the earlier v2.20 version of this template: records carry over, and everyone is signed out once and signs in again.
 
 ## Why Deploy Twenty CRM on Railway?

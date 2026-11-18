@@ -1,4 +1,4 @@
-FROM twentycrm/twenty:v2.57.1
+FROM twentycrm/twenty:v2.59.3
 
 # API + web app. Runs DB migrations and registers cron jobs on boot
 # (the worker has both disabled). Files go to the bundled Railway bucket —
